@@ -43,7 +43,7 @@ test.describe("Login — мокированные ответы сервера", 
     await page.getByRole("button", { name: "Войти" }).click();
 
     // Пока запрос "висит" 2 секунды, кнопка должна быть disabled
-    // (нужно глянуть login-form.tsx — как там реализован loading state).
-    await expect(page.getByRole("button", { name: /Войти|Вход/ })).toBeDisabled();
+    // Во время загрузки текст становится «Вхожу…», ловим его и проверяем disabled
+    await expect(page.getByRole("button", { name: /Вхожу/ })).toBeDisabled();
   });
 });

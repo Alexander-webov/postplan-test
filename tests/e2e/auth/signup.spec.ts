@@ -4,6 +4,7 @@ test.describe("signup page", () => {
   // Эти тесты должны идти БЕЗ сохранённой сессии.
   // storageState: { cookies: [], origins: [] } — это "пустой" state.
   test.use({ storageState: { cookies: [], origins: [] } });
+
   test("Look at form registration  @smoke", async ({ page, signupPage }) => {
     await signupPage.goto();
 

@@ -7,11 +7,11 @@ import { LoginPage } from "../../pages/login.page";
 test.describe("Login page", () => {
   let loginPage: LoginPage;
   // Никаких let loginPage. Никакого beforeEach.
-
+  test.use({ storageState: { cookies: [], origins: [] } });
   test("Chek Login form @smoke", async ({ page, loginPage }) => {
     // Эти тесты должны идти БЕЗ сохранённой сессии.
     // storageState: { cookies: [], origins: [] } — это "пустой" state.
-    test.use({ storageState: { cookies: [], origins: [] } });
+
     await loginPage.goTo();
     //Chek the Title page
     await expect(page).toHaveTitle(/Вход/);
